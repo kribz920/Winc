@@ -3,26 +3,29 @@ __winc_id__ = '71dd124b4a6e4d268f5973db521394ee'
 __human_name__ = 'strings'
 
 # Add your code after this line
-Player_1 = "Ruud Gullit"
-Player_2 = "Marco van Basten"
+player_1 = "Ruud Gullit"
+player_2 = "Marco van Basten"
 
 goal_0 = 32
 goal_1 = 54
 
-scorers = Player_1 + ' ' + str(goal_0) + "," + " " + Player_2 + ' ' + str(goal_1)
+scorers = player_1 + ' ' + str(goal_0) + "," + " " + player_2 + ' ' + str(goal_1)
 # print(scorers)
-report = Player_1 + " scored in the " + str(goal_0) + "nd minute" + f"\n{Player_2} scored in the {goal_1}th minute"
+report = player_1 + " scored in the " + str(goal_0) + "nd minute" + f"\n{player_2} scored in the {goal_1}th minute"
 
 print(report)
-player = "Ruud Gullit"
-first_name = player[player.find("Ruud",0, 4): 4]
+player = player_1
+first_name = player[0:player.find(" ")]
 # print(first_name)
-last_name_len = len(player[player.find("G"):])
-name_short = first_name[0] + ". " + player[player.find("G"):]
 
+last_name_with_space = player[player.find(" "):]
+last_name = last_name_with_space.strip()
+last_name_len = len(last_name)
+name_short = (first_name[0] + ". " + last_name)
+# print(name_short)
 chant_ruud = (first_name + "! ") * len(first_name)
 chant = chant_ruud.strip()
-
+print(chant)
 
 good_chant = chant[-1] != " "
 # print(good_chant)
