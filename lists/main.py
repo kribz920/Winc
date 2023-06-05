@@ -33,16 +33,25 @@ Movie_list = [["The Poseidon Adventure", "Nominated"],
               ["The Fabelmans", "Nominated"]]
 
 
+# Won = filter(lambda c: c[1] == "Won", Movie_list)
+
+# print(list(Won))
+
+
 def  alphabetical_order(movies):
     sorted_list = sorted(movies)
     return sorted_list
 
-def won_golden_globe(film_name)
-    film as won a golden globe = True
-    else 
-#     return False
+def won_golden_globe(film_name):
+    lowercase_film_name = film_name.lower()
+    lowercast_movie_list = list(map(lambda x: list(map(lambda y: y.lower(), x)), Movie_list))
+    if any(lowercase_film_name in sublist for sublist in lowercast_movie_list):
+        return True
+    else:
+        return False
 
 movie_alphabetical_order = (alphabetical_order(Movie_list))
-print(movie_alphabetical_order)
+# print(movie_alphabetical_order)
 
-won
+did_movie_won_golden_globe = won_golden_globe("Jaws")
+print(did_movie_won_golden_globe)
