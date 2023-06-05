@@ -28,3 +28,5 @@ test1 = farm_action('rainy', 'night', False, 'cowshed', 'winter', True, True)
 test2 = farm_action('rainy', 'night', False, 'cowshed', 'winter', False, True)
 test3 = farm_action('windy', 'night', True, 'cowshed', 'winter', True, True)
 test4 = farm_action('sunny', 'day', True, 'pasture', 'spring', False, True)
+
+
