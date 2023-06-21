@@ -46,9 +46,10 @@ def alphabet_set(countries):
             if letter in alphabet:
                 if letter not in letter_list:
                     letter_list.append(letter)
-                else:
+                    alphabet.remove(letter)
+                    if 
                     
-    count_letters = len(letter_list)
+                    count_letters = len(letter_list)
     return countries
 
 # This block is only run if this file is the entrypoint; python main.py
