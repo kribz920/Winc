@@ -37,20 +37,20 @@ def most_vowels(countries):
 
 def alphabet_set(countries):
     lower_case_country = [country.lower() for country in countries]
-    print(lower_case_country)
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    # print(lower_case_country)
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     letter_list = []
-    count_letters = []
+    new_country_list = []
     for country in lower_case_country:
         for letter in country:
             if letter in alphabet:
-                if letter not in letter_list:
-                    letter_list.append(letter)
-                    alphabet.remove(letter)
-                    if 
-                    
-                    count_letters = len(letter_list)
-    return countries
+                letter_list.append(letter)
+                alphabet.remove(letter)
+                if country not in new_country_list:
+                    new_country_list.append(country)
+                                      
+                  
+    return new_country_list
 
 # This block is only run if this file is the entrypoint; python main.py
 # It is not run if it is imported as a module: `from main import *`
@@ -58,6 +58,6 @@ if __name__ == "__main__":
     countries = get_countries()
 
     """ Write the calls to your functions here. """
-    # print(shortest_names(countries))
-    # print(most_vowels(countries))
+    print(shortest_names(countries))
+    print(most_vowels(countries))
     print(alphabet_set(countries))
