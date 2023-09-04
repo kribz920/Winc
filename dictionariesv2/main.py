@@ -29,10 +29,9 @@ def add_stamp(passport, country):
     return passport
 
 def add_biometric_data(passport, type_biometric, value, date_recorded):
-    if 'type_biometric' not in passport:
+    if 'biometric' not in passport:
         passport['biometric'] = {}
-    if type_biometric not in passport['biometric']:
-        passport['biometric'[type_biometric]] = {'date': date_recorded, 'value': value}
+        passport['biometric'][type_biometric] = {'date': date_recorded, 'value': value}
     else:
-        passport.update(type_biometric)
+        passport['biometric'][type_biometric] = {'date': date_recorded, 'value': value}
     return passport
