@@ -9,69 +9,72 @@ __human_name__ = "for"
 
 """ Write your functions here. """
 
-def shortest_names(countries: list) -> list:
-  """
-  Takes a list of countries and returns a list with the countries that have the shortest names."""
-  shortest = min(countries, key=len)
-  shortest_names = []
-  for country in countries:
-      if len(country) == len(shortest):
-          shortest_names.append(country)
-  return(shortest_names)
+def shortest_names(countries):
+    short_names = []
+    len_country_name = [len(country) for country in countries]
+    for country in countries:
+        if len(country) == min(len_country_name):
+            short_names.append(country)
+    return short_names
 
 
-def most_vowels(countries: list):
-  """
-  Takes a list of countries and returns a list with the 3 countries that contain the most vowels.
-  """
-  vowels = "aeiou"
-
-  # List of tuples of (country_name, vowel_count)
-  # Can also be lists if unfamiliar with tuples
-  leaderboard = [("", 0)]
-
-  for country_name in countries:
-      # Count vowels
-      vowel_count = 0
-      for char in country_name:
-          if char.lower() in vowels:
-              vowel_count += 1
-      # Insert into leaderboard if deserving.
-      for position in range(len(leaderboard)):
-          if vowel_count >= leaderboard[position][1]:
-              leaderboard.insert(position, (country_name, vowel_count))
-              break
-          if position > 2:
-              break
-  return [x[0] for x in leaderboard[:3]]
+def most_vowels(countries):
+    vowels = "aeiouAEIOU"
+    vowel_counts = []
+    # lower_case_country = [country.lower() for country in countries]
+    for x in countries:
+        count = 0
+        for z in x:
+            if z in vowels:
+                count += 1
+        vowel_counts.append((x, count))
+    #print(vowel_counts)
+    sorted_list = sorted(vowel_counts, key=lambda x: x[1], reverse=True)
+    sorted_strings = [x for x, count in sorted_list][:3]
+    #print(sorted_list)
+    return sorted_strings
 
 
 def alphabet_set(countries):
-  """
-  Takes a list of countries and returns a list of country names whose letters can be combined to form the         
-  complete alphabet.
-  """
-  # Assembles alphabet
-  countries = [country.lower() for country in countries]
-  letters_needed = list("abcdefghijklmnopqrstuvwxyz")
-  countries_used = []
-  for country in countries:
-      for char in country:
-          if char in letters_needed:
-              letters_needed.remove(char)
-              if country not in countries_used:
-                  countries_used.append(country)
-      if len(letters_needed) == 0:
-          return countries_used
-
+    lower_case_country = [country.lower() for country in countries]
+    # print(lower_case_country)
+<<<<<<< HEAD
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    letter_list = []
+    count_letters = []
+    list_countries = []
+    for country in lower_case_country:
+        for letter in country:!
+            if letter in alphabet:
+                if letter not in letter_list:
+                    letter_list.append(letter)
+                    list_countries.append(country)
+                else:
+                    break
+    print(list_countries)
+    return letter_list
+=======
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    letter_list = []
+    new_country_list = []
+    for country in lower_case_country:
+        for letter in country:
+            if letter in alphabet:
+                letter_list.append(letter)
+                alphabet.remove(letter)
+                if country not in new_country_list:
+                    new_country_list.append(country)
+                                      
+                  
+    return new_country_list
+>>>>>>> c6b9017df74219bee4887d52412f0cdbb9499536
 
 # This block is only run if this file is the entrypoint; python main.py
 # It is not run if it is imported as a module: `from main import *`
 if __name__ == "__main__":
-  countries = get_countries()
+    countries = get_countries()
 
-  """ Write the calls to your functions here. """
-  print(shortest_names(countries))
-  print(most_vowels(countries))
-  print(alphabet_set(countries))
-  print(len(alphabet_set(countries)))
+    """ Write the calls to your functions here. """
+    print(shortest_names(countries))
+    print(most_vowels(countries))
+    print(alphabet_set(countries))
